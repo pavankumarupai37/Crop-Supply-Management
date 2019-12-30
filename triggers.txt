@@ -1,0 +1,3 @@
+BEGIN 
+insert into godownb values(new.crop_name,new.merchant_name,new.qstored,new.rent);
+END

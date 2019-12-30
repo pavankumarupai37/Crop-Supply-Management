@@ -1,0 +1,22 @@
+create table land(land_name varchar(20) NOT NULL ,owner_name varchar(20) NOT NULL ,phone_number varchar(20) ,address varchar(20) NOT NULL , PRIMARY KEY(land_name));
+
+create table crop(crop_name varchar(20) NOT NULL ,land_name varchar(20) ,quantity_grown varchar(20) , PRIMARY KEY(crop_name) ,FOREIGN KEY (land_name) REFERENCES land(land_name));
+
+create table merchant(merchant_name varchar(20) NOT NULL ,phone_number varchar(20) ,address varchar(20) , PRIMARY KEY(merchant_name));
+
+create table godown(crop_name varchar(20) ,merchant_name varchar(20) ,qstored varchar(20) ,rent int , FOREIGN KEY (crop_name) REFERENCES crop(crop_name) , FOREIGN KEY(merchant_name) REFERENCES merchant(merchant_name));
+
+create table transport(number varchar(20) ,crop_name varchar(20) ,loaded varchar(20) ,d_o_l varchar(20) ,d_o_u varchar(20) , FOREIGN KEY (crop_name) REFERENCES crop(crop_name));
+
+create table shop(name varchar(20) ,address varchar(20) ,crop_name varchar(20) ,quantity varchar(20) ,payment int ,FOREIGN KEY (crop_name) REFERENCES crop(crop_name));
+
+create table godownb(crop_name varchar(20) ,merchant_name varchar(20) ,qstored varchar(20) ,rent int , FOREIGN KEY (crop_name) REFERENCES crop(crop_name) , FOREIGN KEY(merchant_name) REFERENCES merchant(merchant_name));
+
+
+CREATE PROCEDURE `vehicles`() NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER select distinct(number) from transport 
+
+
+
+
+
+
